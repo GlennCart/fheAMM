@@ -12,6 +12,7 @@ import "solidity-coverage";
 import "./tasks/accounts";
 
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
+// Configuration for Hardhat with FHEVM plugin support
 
 const MNEMONIC: string =
   process.env.MNEMONIC ??

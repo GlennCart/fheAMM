@@ -10,7 +10,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     log: true,
   });
 
-  console.log(`FHEAMM contract: `, deployed.address);
+  console.log(`FHEAMM contract deployed at: `, deployed.address);
 };
 export default func;
 func.id = "deploy_fheamm"; // id required to prevent reexecution
