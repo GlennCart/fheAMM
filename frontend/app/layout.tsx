@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "FHE AMM",
-  description: "Privacy-preserving AMM parameter optimizer (Zama FHEVM)",
+  description: "Privacy-preserving AMM parameter optimizer using Zama FHEVM",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
