@@ -20,6 +20,7 @@
     "@fhevm/solidity": "^0.9.1",
     "@openzeppelin/contracts": "^5.0.2"
   },
+  // FHEVM dependencies are pinned to ensure compatibility
   "devDependencies": {
     "@fhevm/hardhat-plugin": "^0.3.0-1",
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
