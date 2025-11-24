@@ -24,12 +24,12 @@ type FHEAMMInfoType = {
 };
 
 export type AggregatesHandles = {
-  aggLiquidity?: string;
-  sumLower?: string;
-  sumUpper?: string;
-  twoTimesNumPositions?: string;
-  suggestedFeeRatio?: string;
-  suggestedTickSpacing?: string;
+  aggLiquidity?: `0x${string}`;
+  sumLower?: `0x${string}`;
+  sumUpper?: `0x${string}`;
+  twoTimesNumPositions?: `0x${string}`;
+  suggestedFeeRatio?: `0x${string}`;
+  suggestedTickSpacing?: `0x${string}`;
 };
 
 export type AggregatesClears = {
@@ -211,12 +211,12 @@ export const useFHEAMM = (parameters: {
       .then(([aggr, sugg, me]: [readonly string[], readonly string[], readonly [string, string, string, boolean]]) => {
         if ((sameChain.current?.(thisChainId) ?? false) && thisAddress === ammRef.current?.address) {
           setHandles({
-            aggLiquidity: aggr[0],
-            sumLower: aggr[1],
-            sumUpper: aggr[2],
-            twoTimesNumPositions: aggr[3],
-            suggestedFeeRatio: sugg[0],
-            suggestedTickSpacing: sugg[1],
+            aggLiquidity: aggr[0] as `0x${string}`,
+            sumLower: aggr[1] as `0x${string}`,
+            sumUpper: aggr[2] as `0x${string}`,
+            twoTimesNumPositions: aggr[3] as `0x${string}`,
+            suggestedFeeRatio: sugg[0] as `0x${string}`,
+            suggestedTickSpacing: sugg[1] as `0x${string}`,
           });
           setMessage("✅ Aggregates refreshed successfully!");
         }
@@ -237,8 +237,8 @@ export const useFHEAMM = (parameters: {
   const decryptAggregates = useCallback(() => {
     if (busyRef.current) return;
     if (!amm.address || !instance || !ethersSigner) return;
-    const toDecrypt: { handle: string; contractAddress: `0x${string}` }[] = [];
-    const push = (h?: string) => { if (h && h !== ethers.ZeroHash) toDecrypt.push({ handle: h, contractAddress: amm.address! }); };
+    const toDecrypt: { handle: `0x${string}`; contractAddress: `0x${string}` }[] = [];
+    const push = (h?: `0x${string}`) => { if (h && h !== ethers.ZeroHash) toDecrypt.push({ handle: h, contractAddress: amm.address! }); };
     push(handles.aggLiquidity);
     push(handles.sumLower);
     push(handles.sumUpper);
